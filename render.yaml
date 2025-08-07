@@ -1,10 +1,15 @@
-
 services:
   - type: web
     name: serveur-marche
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: ""
     startCommand: python server.py
-    
+    envVars:
+      - key: BASE_URL
+        value: https://serveur-marche.onrender.com
+    disk:
+      name: images
+      mountPath: /opt/render/project/src/images
+      sizeGB: 1
+
 
